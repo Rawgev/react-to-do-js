@@ -13,7 +13,9 @@ function TodoList({ tasks, deleteTask, toggleComplete }) {
           task={task}
           onDelete={() => deleteTask(index)}
           onToggle={() => toggleComplete(index)}
+          onEdit={(newText) => editTask(index, newText)}
         />
+
       ))}
     </ul>
   );

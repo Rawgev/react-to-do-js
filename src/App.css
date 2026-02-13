@@ -212,3 +212,68 @@ body {
 .switch input:checked + .slider::before {
   transform: translateX(24px);
 }
+/* 📱 Mobile responsive */
+@media (max-width: 480px) {
+  .todo-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .todo-title {
+    font-size: 22px;
+  }
+
+  .todo-form {
+    flex-direction: column;
+  }
+
+  .todo-button {
+    width: 100%;
+  }
+
+  .todo-item {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .todo-item button {
+    align-self: flex-end;
+  }
+}
+/* ✨ Smooth animations */
+.todo-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.todo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.todo-button,
+.todo-item button {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.todo-button:active,
+.todo-item button:active {
+  transform: scale(0.95);
+  opacity: 0.9;
+}
+
+/* 🪄 Task fade-in */
+.todo-item {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

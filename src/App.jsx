@@ -30,6 +30,12 @@ function App() {
     const updated = tasks.filter((_, i) => i !== indexToDelete);
     setTasks(updated);
   }
+  function editTask(indexToEdit, newText) {
+    const updated = tasks.map((t, i) =>
+      i === indexToEdit ? { ...t, text: newText } : t
+    );
+    setTasks(updated);
+  }
 
   function toggleComplete(indexToToggle) {
     const updated = tasks.map((t, i) =>
