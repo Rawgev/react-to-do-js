@@ -41,8 +41,12 @@ function TodoItem({ task, onDelete, onToggle, onEdit }) {
           </div>
 
           <div>
-            <button onClick={() => setIsEditing(true)}>Edit</button>
-            <button onClick={onDelete}>Delete</button>
+           
+            <div className="todo-actions">
+              <button className="edit-btn" onClick={onEdit}>Edit</button>
+              <button className="delete-btn" onClick={onDelete}>Delete</button>
+            </div>
+
           </div>
         </>
       )}
