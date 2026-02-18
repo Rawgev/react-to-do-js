@@ -308,3 +308,186 @@ body {
 .delete-btn:hover {
   background: #dc2626;
 }
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-list li {
+  margin-bottom: 12px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1c0712;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.todo-list li {
+  width: 100%;
+}
+
+.todo-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+.todo-card {
+  overflow: hidden;
+  position: relative;
+}
+.todo-list {
+  max-width: 100%;
+}
+
+.todo-item {
+  width: 100%;
+}
+.todo-item span {
+  color: #f1f1f1;   /* bright readable text */
+  font-weight: 500;
+}
+
+.todo-item {
+  color: #f1f1f1;
+}
+.todo-item.completed span {
+  opacity: 0.6;
+}
+.todo-item span {
+  color: #f1f1f1;
+  font-weight: 500;
+}
+
+.todo-item.completed span {
+  opacity: 0.6;
+}
+.todo-item {
+  width: 100%;
+  box-sizing: border-box;
+}
+.todo-list {
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3a0b14;
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.todo-list {
+  width: 100%;
+  padding: 0;
+}
+
+.todo-list li {
+  width: 100%;
+  box-sizing: border-box;
+}
+.todo-actions {
+  display: flex;
+  gap: 10px;          /* space between Edit & Delete */
+  align-items: center;
+}
+
+/* Better mobile look */
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.todo-edit {
+  display: flex;
+  gap: 8px;
+}
+
+.save-btn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.todo-edit {
+  display: flex;
+  align-items: center;
+  gap: 12px;          /* space between input & button */
+}
+
+.todo-edit input {
+  flex: 1;            /* input takes full width */
+}
+
+.save-btn {
+  margin-left: 42px;   /* pushes Save button slightly right */
+}
+.empty-state {
+  text-align: center;
+  padding: 30px 10px;
+  color: #aaa;
+}
+
+.empty-emoji {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+/* Smooth task animation */
+.todo-item {
+  animation: fadeSlideIn 0.25s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Empty state styling */
+.empty-state {
+  text-align: center;
+  padding: 20px;
+  color: #bbb;
+  animation: fadeSlideIn 0.25s ease;
+}
+
+.empty-state p {
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+.empty-state span {
+  font-size: 14px;
+  color: #888;
+}
+.search-input {
+  width: 100%;
+  padding: 8px 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #2a2a2a;
+  color: #fff;
+}

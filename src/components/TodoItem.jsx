@@ -2,55 +2,72 @@ import { useState } from "react";
 
 function TodoItem({ task, onDelete, onToggle, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [newText, setNewText] = useState(task.text);
+  const [editText, setEditText] = useState(task.text);
 
   function handleSave() {
-    if (!newText.trim()) return;
-    onEdit(newText);
+    if (!editText.trim()) return;
+
+    onEdit(editText);   // send new text to parent
     setIsEditing(false);
   }
 
   return (
-    <li className="todo-item">
-      {isEditing ? (
-        <>
-          <input
-            value={newText}
-            onChange={(e) => setNewText(e.target.value)}
-          />
-          <button onClick={handleSave}>Save</button>
-        </>
-      ) : (
+    <div className={`todo-item ${task.completed ? "completed" : ""}`}>
+    {isEditing ? (
+  <div className="todo-edit">
+    <input
+      value={editText}
+      onChange={(e) => setEditText(e.target.value)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") handleSave();
+        if (e.key === "Escape") {
+          setIsEditing(false);
+          setEditText(task.text);
+        }
+      }}
+    />
+
+    <button className="save-btn" onClick={handleSave}>
+      Save
+    </button>
+  </div>
+) : (
+
         <>
           <div>
             <input
               type="checkbox"
               checked={task.completed}
               onChange={onToggle}
-              style={{ marginRight: "8px" }}
             />
 
             <span
               style={{
                 textDecoration: task.completed ? "line-through" : "none",
                 opacity: task.completed ? 0.6 : 1,
+                marginLeft: "8px",
               }}
             >
               {task.text}
             </span>
           </div>
 
-          <div>
-           
-            <div className="todo-actions">
-              <button className="edit-btn" onClick={onEdit}>Edit</button>
-              <button className="delete-btn" onClick={onDelete}>Delete</button>
-            </div>
+          <div className="todo-actions">
+            {/* Edit just enables editing */}
+            <button
+              className="edit-btn"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </button>
 
+            <button className="delete-btn" onClick={onDelete}>
+              Delete
+            </button>
           </div>
         </>
       )}
-    </li>
+    </div>
   );
 }
 

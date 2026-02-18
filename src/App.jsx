@@ -5,6 +5,7 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [filter, setFilter] = useState("all");
+  const [search, setSearch] = useState("");
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "dark";
   });
@@ -37,6 +38,7 @@ function App() {
     setTasks(updated);
   }
 
+
   function toggleComplete(indexToToggle) {
     const updated = tasks.map((t, i) =>
       i === indexToToggle ? { ...t, completed: !t.completed } : t
@@ -52,11 +54,16 @@ function App() {
   }, [theme]);
 
 
-  const filteredTasks = tasks.filter(task => {
-    if (filter === "completed") return task.completed;
-    if (filter === "pending") return !task.completed;
-    return true;
-  });
+  const filteredTasks = tasks
+    .filter(task => {
+      if (filter === "completed") return task.completed;
+      if (filter === "pending") return !task.completed;
+      return true;
+    })
+    .filter(task =>
+      task.text.toLowerCase().includes(search.toLowerCase())
+    );
+
   // counters
   const pendingCount = tasks.filter(t => !t.completed).length;
   const completedCount = tasks.filter(t => t.completed).length;
@@ -101,12 +108,21 @@ function App() {
             Completed
           </button>
         </div>
+        <input
+          className="search-input"
+          placeholder="🔍 Search tasks..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
         <TodoList
           tasks={filteredTasks}
           deleteTask={deleteTask}
           toggleComplete={toggleComplete}
+          editTask={editTask}
+          setTasks={setTasks}
         />
+
 
 
         {/* CLEAR COMPLETED BUTTON */}
