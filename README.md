@@ -76,7 +76,7 @@ npm run dev
 Open in browser:
 
 http://localhost:5173
-
+ ```
 📈 Learning Highlights
 
 This project helped me understand:
