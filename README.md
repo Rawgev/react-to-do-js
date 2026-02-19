@@ -32,9 +32,8 @@ A modern, responsive To-Do application built with **React + Vite** featuring dra
 
 ## 📸 Screenshots
 
-_Add screenshots here after capturing from your live app._
+<img width="1895" height="894" alt="image" src="https://github.com/user-attachments/assets/3a1318fb-96df-49f2-a00e-cb35fa6cab85" />
 
----
 
 ## 🚀 Getting Started
 
